@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    //onerror=handleErr;
+    //var txt="";
+	
+    var init = new require('./build/Release/printer');
+	init.is_load();
+	init.open();
+	init.is_online();
+	init.print_raw_data("com7\0");
+	//init.print_union_receipt("one","two","C:/lxt.img");
+    /*init.open();
+    init.close();
+    init.print_raw_data("com7");*/
+	
+	/*function handleErr(msg,url,l){
+      txt+="Error: " + msg + "\n"
+      txt+="URL: " + url + "\n"
+      txt+="Line: " + l + "\n"
+      //alert(txt);
+      console.log(txt);
+      return true
+	}*/
+  </script>
+  <body>
+    <select id="ind_select" onchange = "change(this.value)">
+      <option value = "open">open</option>
+	  <option value = "close">close</option>
+	  <option value = "reset">reset</option>
+    </select>
+  </body>
+  <script>
+	function change(id) {
+      var select_value = document.getElementById("ind_select").value;
+      console.log(id);
+      console.log(select_value);
+      switch(id){
+        case "open" :
+          init.open();
+        break;
+        case "close" :
+          init.close();
+        break;
+        case "reset" :
+          init.reset();
+        break;
+      }
+    }
+  </script>
+</html>

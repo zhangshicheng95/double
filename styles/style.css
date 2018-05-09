@@ -1,0 +1,1237 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
+  width: 1024px;
+  height: 768px;
+  font-family: "microsoft yahei" !important;
+}
+body>div{
+  background-color:#EEE;
+}
+
+/*OCX圈圈???----------------------------------------------------------------*/
+
+#payOCX {
+  display: none;
+}
+
+#payerror {
+  position: absolute;
+  z-index: 5;
+  top: 25%;
+  left: 50%;
+  font-size: 24px;
+  display: none;
+}
+.alert{
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  box-shadow: 1px 1px 1px 0px #B5B5B5;
+}
+.alert-bubble{
+  position:absolute;
+  top:64px;
+  width:0px;
+  height:0px;
+  border:10px solid;
+  border-color:#f2dede #f2dede transparent transparent;
+}
+.alert-info{
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-warning{
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+/*初始化界面-------------------------------------------------------------------------------------------*/
+
+#init {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  display: none;
+  z-index: 3;
+  overflow: hidden;
+  background-image: url(../images/img/init.gif);
+}
+
+/*寻求帮助界面-------------------------------------------------------------------------------------------*/
+
+#needhelp {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  display: none;
+  z-index: 2;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+#word_needhelp {
+  position: absolute;
+  width: 645px;
+  height: 380px;
+  left: 50%;
+  top: 25%;
+  margin-left: -322px;
+  background-color: rgba(142,133,255,0.8);
+  border-radius: 15px;
+}
+
+#cancelhelp_needhelp {
+  position: absolute;
+  z-index: 3;
+  left: 790px;
+  top: 690px;
+  font-size: 25px;
+  width: 150px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#word_needhelp>div{
+  width: 645px;
+  height: 300px;
+  background-color: #E7EBFF;
+  margin-top: 40px;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 40px;
+}
+#word_needhelp>div>div{
+  padding-top: 40px;
+}
+
+/*暂停服务界面--------------------------------------------------------------------------------------*/
+
+#error {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  display: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+#box_outofservice {
+  position: absolute;
+  z-index: 1;
+  left: 220px;
+  top: 180px;
+}
+
+#word_outofservice {
+  position: absolute;
+  z-index: 2;
+  left: 270px;
+  top: 230px;
+}
+
+#sign_outofservice {
+  position: absolute;
+  z-index: 2;
+  left: 270px;
+  top: 400px;
+}
+
+
+/*入口界面----------------------------------------------------------------------------------*/
+
+div#entrance {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  z-index: 0;
+  display: none;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+#isdenopass{
+  position: absolute;
+  bottom: 60px;
+  font-size: 35px;
+  color: #bd2023;
+  left: 400px;
+}
+
+#turntoadmin {
+  position: absolute;
+  z-index: 3;
+  top: 0px;
+  left: 0px;
+  width: 110px;
+  height: 60px;
+  background-color: #FFFFFF;
+  opacity: 0.001;
+}
+
+#turntoadminA {
+  position: absolute;
+  z-index: 3;
+  top: 0px;
+  left: 914px;
+  width: 110px;
+  height: 60px;
+  background-color: #FFFFFF;
+  opacity: 0.001;
+}
+
+#turntoadminB {
+  position: absolute;
+  z-index: 3;
+  top: 60px;
+  left: 914px;
+  width: 110px;
+  height: 60px;
+  background-color: #FFFFFF;
+  opacity: 0.001;
+}
+
+#showtime_entrance {
+  position: absolute;
+  z-index: 2;
+  left: 870px;
+  top: 25px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+#shopingway {
+  width: 1024px;
+  margin: 0 auto;
+  z-index: 2;
+  top: 0px;
+  overflow: hidden;
+}
+
+#myCarousel {
+  position: absolute;
+  left: 30px;
+  top: 110px;
+  box-shadow: 5px 5px 20px;
+}
+
+div#shopingway>div#way_choice {
+  position: absolute;
+  left: 620px;
+  width: 360px;
+  font-size: 36px;
+  top: 138px;
+}
+#shopingway>div>span{
+  display: block;
+  font-size: 20px;
+  position: absolute;
+  left: 55px;
+  top: 30px;
+}
+#shopingway>div{
+  text-align: center;
+  font-size: 28px;
+  line-height: 62px;
+  width: 187px;
+  height: 62px;
+}
+#way_member {
+  position: absolute;
+  left: 67%;
+  top: 45%;
+}
+
+#way_normal {
+  position: absolute;
+  left: 67%;
+  top: 50%;
+}
+
+#back_rechargeway {
+  position: absolute;
+  left: 900px;
+  top: 720px;
+}
+
+#showversion_entrance {
+  position: absolute;
+  z-index: 2;
+  left: 360px;
+  top: 740px;
+  font-weight: bold;
+}
+
+#help_entrance{
+  position: absolute;
+  z-index: 2;
+  left: 960px;
+  top: 720px;
+  opacity: 0.8;
+}
+
+/*会员入口-------------------------------------------------------------------------------------------------*/
+#vip {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  display: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#bg_vip {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.001;
+}
+
+#back_vip {
+  position: absolute;
+  z-index: 2;
+  font-size: 25px;
+  width: 121px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  left: 860px;
+  top: 700px;
+  background-color: rgba(183,183,183,1);
+}
+
+#vip_scan{
+  text-align: center;
+}
+
+#vip_scan>img{
+  width: 60%;
+  margin-top: 45px;
+  margin-left: 245px;
+}
+
+#vip_text {
+  margin-top: 100px;
+  width: 1024px;
+  text-align: center;
+  font-size: 35px;
+  color: #3A3A3A;
+}
+
+/*倒计时*/
+#countdown_container {
+  position: absolute;
+  z-index: 5;
+  top: 10%;
+  left: 95%;
+  font-weight: bold;
+  font-size: 36px;
+  color: #000000;
+  background-color:#FFFFFF;
+  text-shadow: 1px 1px 2px 1px #FFFFFF;
+  display: none;
+}
+
+/*商品列表 付款界面-----------------------------------------*/
+
+#container {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  z-index: 0;
+  overflow: hidden;
+  display: none;
+}
+
+#nogoodswarning_container {
+	position: absolute;
+	z-index: 5;
+	top: 35%;
+	right: 25%;
+	font-size: 24px;
+	display: none;
+}
+
+#scan_type{
+	position: absolute;
+	z-index: 5;
+	top: 35%;
+	right: 25%;
+	font-size: 24px;
+	display: none;
+}
+
+#fulllist>div{
+  position:absolute;
+  z-index:0;
+  left:280px;
+  top:80px;
+  width:710px;
+  height:480px;
+  overflow:hidden;
+  background-color:#FFFFFF;
+}
+
+#extratb {
+  position: absolute;
+  left: 280px;
+  top: 120px;
+  width: 708px;
+  height: 46px;
+  table-layout: fixed;
+  font-size: 14px;
+  border-spacing: 1px 10px;
+  z-index: 1;
+  background-color: #FFFFFF;
+  visibility:visibility;
+}
+
+#extratb th {
+  text-align: center;
+}
+
+#list_title{
+  width:100%;
+  height:40px;
+  text-align:center;
+  padding-top:10px;
+  font-weight:bold;
+  font-size:20px;
+}
+
+#list {
+  position: absolute;
+  float: left;
+  width: 735px;
+  height: 440px;
+  left: 0px;
+  top: 40px;
+  overflow: auto;
+  overflow-x: hidden;
+  background-attachment: local;
+  font-weight: bold;
+  z-index: 0;
+}
+
+#listtable {
+  position: absolute;
+  left: 2px;
+  top:0px;
+  width: 706px;
+  text-align: left;
+  table-layout: fixed;
+  font-size: 14px;
+  border-spacing: 0px 10px;
+  
+}
+
+#listtable tr {
+  box-shadow: 2px 2px 7px 0px #B5B5B5;
+}
+
+#listtable td {
+  height: 24px;
+  width: 50px;
+  /** 固定单元格宽度，防止分离表头后，表头与数据行错位（缺点） */
+  line-height: 24px;
+  padding: 3px 0px;
+  overflow: hidden;
+  /* box-shadow: 1px 0px 5px #B5B5B5; */
+  /* padding-left:28px; */
+  border-style: solid;
+  border-width: 0px;
+  text-align: center;
+}
+
+td div {
+  height: 20px;
+  overflow: visible;
+  width: 100%;
+  left: 40px;
+}
+
+#listtable tr th {
+  visibility: hidden;
+}
+
+#listtable tr {
+  height: 30px;
+  background-color: #FFFFFF;
+}
+
+#listtable tr:first-child {
+  height: 30px;
+  background-color: #ECF5FF;
+}
+
+#listtable tr:last-child {
+  height: 48px;
+  background-color: #d0ebfd;
+}
+
+#listtable tr:hover {
+  background-color: #8fc6ff;
+  /* height:50px; */
+}
+
+#list_num{
+  position: absolute; 
+  left: 420px;
+  top: 570px;
+  font-weight:bold;
+}
+
+#list_sum{
+  position: absolute; 
+  left: 710px;
+  top: 570px;
+  font-weight:bold;
+}
+
+#total {
+  position: absolute; 
+  font-size: 23px;
+  left: 240px;
+  top: 660px;
+  z-index: 0;
+}
+
+#total_box{
+  position: absolute;
+  font-size: 23px;
+  top: 600px;
+  width: 1024px;
+  text-align: center;
+  z-index: 3;
+}
+
+#total_box>div{
+  display: inline-block;
+}
+
+#showdiscount{
+  color: #D43F3A;
+}
+
+#showpocket{
+  color:green;
+  font-size: 25px;
+}
+
+.showtotal {
+  display: inline-block;
+  text-align: center;
+  margin-right:10px;
+  z-index: 3;
+}
+
+div#method_id>div#paynow_method {
+  position: absolute;
+  top: 600px;
+  width: 658px;
+  height: 100px;
+  left: 280px;
+  text-align: center;
+  z-index: 1;
+  display: block;
+}
+
+#paynow_method_vip {
+  position: absolute;
+  font-size: 22px;
+  width: 150px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#vip_vipnoandpoint{
+  position: absolute;
+  width: 215px;
+  border: 1px dashed rgb(12, 33, 43);
+  left: 90px;
+  border-radius: 10px;
+  top: 20px;
+}
+
+#vipno {
+  font-size: 18px;
+  font-weight: bold;
+  width: 90px;
+  line-height: 40px;
+  display: none;
+}
+
+#vipno_point {
+  font-size: 18px;
+  font-weight: bold;
+  width: 90px;
+  line-height: 40px;
+  display: none;
+}
+
+#showvipno_cardid {
+  position: absolute;
+  text-align: center;
+  font-size: 18px;
+  left: 90px;
+  top: 4px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+}
+
+#showvipno_point {
+  position: absolute;
+  text-align: center;
+  font-size: 18px;
+  left: 90px;
+  top: 44px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+}
+
+#paynow_method_pay{
+  position: absolute;
+  left: 420px;
+  bottom: 25px;
+  font-size: 22px;
+  width: 170px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+/* **支付方式开始*************** */
+
+#pay_method {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 1024px;
+  height: 700px;
+  z-index: 2;
+  font-size: 30px;
+  display: none;
+}
+
+#pay_text {
+  margin-top: 30px;
+  width: 1024px;
+  text-align: center;
+  color: #3A3A3A;
+  font-size: 1.2em;
+  z-index: 3;
+}
+
+#pay_line {
+  position: absolute;
+  width: 660px;
+  text-align: center;
+  left: 50%;
+  margin-left: -330px;
+  top: 25%;
+  overflow: hidden;
+}
+
+#pay_line>div {
+  display: inline-block;
+  width: 110px;
+  height: 100px;
+  margin: 12px 20px;
+  text-align: center;
+  background-color: #8E85FF;
+  color: #FFFFFF;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+#pay_line>div>img{
+  margin: 18px 0px 9px 0px;
+}
+
+/*---***支付方式结束***------------------------------*/
+
+#wait_method {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 1024px;
+  height: 700px;
+  z-index: 2;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+}
+
+#wait_method_word {
+  position: absolute;
+  z-index: 3;
+  width: 681px;
+  height: 451px;
+  left: 50%;
+  top: 50%;
+  margin-left: -340px;
+  margin-top: -250px;
+}
+
+#rescan_method {
+  position: absolute;
+  z-index: 5;
+  top: 36%;
+  left: 50%;
+  font-size: 24px;
+  display: none;
+}
+
+#method_id>div#wechat_method {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 1024px;
+  height: 710px;
+  z-index: 2;
+  background-color: #FFFFFF;
+  display: none;
+}
+
+#wechat_method_word {
+  position: absolute;
+  top: 5%;
+}
+
+#method_id>div#alipay_method {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 1024px;
+  height: 710px;
+  z-index: 2;
+  background-color: #FFFFFF;
+  display: none;
+}
+
+#alipay_method_word {
+  position: absolute;
+  top: 5%;
+}
+
+#method_id>div#artificialpay_method{
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 1024px;
+  height: 710px;
+  z-index: 2;
+  display: none;
+}
+
+#artificialpay_method_word {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  margin-left: -300px;
+}
+
+#transition_now {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 1024px;
+  height: 700px;
+  z-index: 2;
+  display: none;
+}
+
+#transition_now_word {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  margin-left: -323px;
+  width: 646px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 13px;
+}
+
+#transition_now_word>div {
+  position: absolute;
+  width: 602px;
+  height: 258px;
+  top: 20%;
+  left: 50%;
+  margin-left: -301px;
+  text-align: center;
+  color: #3A3A3A;
+  line-height: 250px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: rgba(225, 225, 225, 0.3);
+  font-size: 2em;
+}
+
+#transition_text {
+  position: absolute;
+  top: 180px;
+  left: 470px;
+  font-size: 2.3em;
+  color: #3A3A3A;
+}
+
+/* 部分特殊按钮存储位置 */
+#opition{
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  width: 220px;
+  height: 632px;
+  background-color: rgba(255,255,255,1);
+}
+
+#barcode_container {
+  width:180px;
+  height:45px;
+  margin: 5px 20px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 22px;
+}
+
+#canceldeal_container {
+    font-size: 22px;
+   	width:180px;
+	height:45px;
+	margin: 5px 20px;
+    text-align: center;
+    line-height: 45px;
+	background: rgba(220, 45, 9, 1);
+}
+
+#help_container {
+  position: absolute;
+  top: 510px;
+  font-size: 22px;
+   width:180px;
+  height:45px;
+  margin: 5px 20px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#back_container {
+  position: absolute;
+  top: 570px;
+  font-size: 22px;
+   width:180px;
+  height:45px;
+  margin: 5px 20px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#help_container_pay {
+  position: absolute;
+  z-index: 3;
+  background: #9FCC6A;
+  color: rgba(99, 99, 99, 1);
+  border: 1px solid #9FCC6A;
+  left: 100px;
+  top: 660px;
+  font-size: 25px;
+  width: 200px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#help_container_pay:active{
+  color: rgba(99, 99, 99, 0.5);
+}
+
+#back_screen_pay {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  right: 50%;
+  margin-right:-100px;
+  top: 660px;
+  font-size: 22px;
+   width:200px;
+  height:45px;
+  text-align: center;
+  line-height: 45px;
+  background: rgba(220, 45, 9, 1);
+}
+
+#back_container_pay {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  right: 100px;
+  top: 660px;
+  font-size: 25px;
+  width: 200px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  background: #BDCCCA;
+  border: 1px solid #BDCCCA;
+  color: rgba(102, 102, 102, 1);
+}
+
+#back_container_pay:active{
+  color: rgba(100, 100, 100, 0.5);
+}
+
+/*支付成功界面------------------------------------------------------------------------------------*/
+
+#paysuccess {
+  position: relative;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  z-index: -1;
+  display: none;
+  overflow: hidden;
+  display: none;
+}
+
+#prompt_paidsuccess {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+#word_paysuccess {
+  position: absolute;
+  z-index: 2;
+  font-size: 50px;
+  top: 100px;
+  width: 1024px;
+  text-align: center;
+}
+
+#word2_paysuccess {
+  position: absolute;
+  z-index: 2;
+  font-size: 35px;
+  top: 200px;
+  width: 1024px;
+  text-align: center;
+}
+
+#takebankcard_paysuccess {
+  position: absolute;
+  z-index: 2;
+  top: 200px;
+  left: 50%;
+  margin-left: -225px;
+  display: none;
+}
+
+#invoice_paysuccess {
+  position: absolute;
+  z-index: 2;
+  top: 300px;
+  left: 50%;
+  margin-left: -120px;
+}
+
+#acupos_wish{
+  font-size: 25px;
+  color: #FFF;
+  padding-left: 540px;
+  line-height: 50px;
+}
+
+/*手动输入条码界面----------------------------*/
+
+#barcode {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  margin: 0 auto;
+  display: none;
+  z-index: 1;
+  overflow: hidden;
+  background: rgba(0,0,0,0.1);
+}
+
+#keyboard_bg {
+  position: absolute;
+  width: 482px;
+  height: 420px;
+  z-index: 1;
+  left: 50%;
+  margin-left: -242px;
+  top: 185px;
+  background-color: rgba(255,255,255,1);
+  border-radius: 4px;
+}
+
+#showcode{
+  display: block;
+  z-index: 2;
+  font-size: 30px;
+  width: 438px;
+  height: 42px;
+  text-align: center;
+  margin: 20px auto;
+  outline: none;
+}
+
+div#keyboard_bg>div{
+  display: inline-block;
+  width: 121px;
+  text-align: center;
+  line-height: 43px;
+  margin:10px 18px;
+  font-size: 25px;
+}
+
+div#keyboard_bg>div#code_submit{
+  display:block;
+  margin:10px auto;
+}
+
+#code_word {
+  position: absolute;
+  z-index: 3;
+  width: 253px;
+  height: 42px;
+  left: 18px;
+  top: 24px;
+  text-align: center;
+  font-size: 30px;
+  opacity: 0.3;
+}
+
+#help_barcode {
+  position: absolute;
+  z-index: 2;
+  background: #80C269;
+  color: rgba(99, 99, 99, 1);
+  border: 1px solid #80C269;;
+  left: 60px;
+  top: 710px;
+  font-size: 25px;
+  width: 200px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#help_barcode:active{
+  color: rgba(99, 99, 99, 0.5);
+}
+
+#back_barcode {
+  position: absolute;
+  z-index: 2;
+  right: 60px;
+  top: 710px;
+  font-size: 25px;
+  width: 200px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+  background: #BDCCCA;
+  border: 1px solid #BDCCCA;
+  color: rgba(102, 102, 102, 1);
+}
+
+#back_barcode:active{
+  color: rgba(100, 100, 100, 0.5);
+}
+
+#footer_barcode {
+  width: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 0%;
+  top: 92%;
+}
+
+/*--------------------新版本UI更新样式表-------------------------------*/
+/*头部以及log样式*/
+header{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1024px;
+  height: 60px;
+  background-color: rgba(51,10,153,1);
+  z-index: 2;
+}
+#log{
+  position: absolute;
+  color: #EEE;
+  font-size: 20px;
+  left: 20px;
+  top: 5px;
+}
+#acupos{
+  margin: 10px auto;
+  width: 700px;
+  font-size: 30px;
+  text-align: center;
+  color: #EFEFEF;
+}
+
+/*----按钮样式表-----*/
+.acupos_btn{
+  color: #D9EEF7;
+  background: rgba(2,180,254,1);
+  border-radius: 4px;
+}
+
+.acupos_btn:active { 
+  color: #80BED6;
+  border-radius: 4px;
+}
+
+#method_id>div{
+  background-color: #EEEEEE;
+}
+
+#language_change{
+  position: absolute;
+  bottom: 3px;
+  left: 20px;
+  width: 120px;
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  font-size: 25px;
+  z-index: 2;
+  background: #80C269;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #80C269;
+}
+
+#language_change:active{
+  color: rgba(99, 99, 99, 1);
+}
+
+#returngoods_forced{
+  position: absolute;
+  color: #faddde; 
+  border: solid 1px #980c10; 
+  background: #d81b21;
+  left: 193px;
+  bottom: 56px;
+  font-size: 25px;
+  width: 200px;
+  height: 45px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 45px
+}
+
+.white { 
+  color: #606060; 
+  border: solid 1px #b7b7b7; 
+  background: #fff; 
+  background: linear-gradient(to top, #fff, #ADADAD);
+  box-shadow:1px 1px 1px 1px #ADADAD;
+  border-radius: 30px;
+} 
+ 
+.white:active { 
+  color: #999;
+  background: linear-gradient(to top, #ADADAD, #fff);
+  box-shadow:1px 1px 1px 1px #ADADAD;
+  border-radius: 30px;
+}
+
+.whitebtn{
+  width: 180px;
+  height: 60px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 60px;
+}
+
+/*----------关单---------*/
+#beginclosetrans{
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index:99;
+  width:1024px;
+  height:768px;
+  text-align: center;
+  display: none;
+}
+
+#beginclosetrans_box{
+  width: 30%;
+  height:160px;
+  background-color:rgba(225,225,225,1);
+  margin: 270px auto;
+}
+
+#beginclosetrans_text{
+  padding: 40px;
+  border-bottom: 1px dashed #DDD;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+#beginclosetrans_false{
+  display: inline-block;
+  width: 85px;
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  border: none;
+  background-color: #168bbb;
+  margin: 0 20px 0 0;
+}
+
+#beginclosetrans_true{
+  display: inline-block;
+  width: 85px;
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  border: none;
+  background-color: gray;
+}
+/*------------关单结束----------*/

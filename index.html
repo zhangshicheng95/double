@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <title>ParkPay</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+  </head>
+  <body>
+      <!-- 用作承载头部内容的边框 -->
+    <header>
+      <div id="log"><img src="images/img/logo.png"/></div>
+      <div id="acupos">欢迎光临24h自助超市</div>
+      <div id="showtime_entrance"></div>
+    <audio id="audio" src="" autoplay="autoplay"></audio>
+    <!--桌面隐形按钮点击事件-->
+    <div id="turntoadmin" onclick="changeTrunToAdminA()"></div>
+    <div id="turntoadminA" ></div>
+    <div id="turntoadminB" ></div>
+    <!--错误提示-->
+    <div id="payerror" class="alert alert-danger">
+      <strong>登录失败，请重新登录</strong>
+    </div>
+    <!-- 初始化界面-->
+    <div id="init"></div>
+    <!--暂停服务界面-->
+    <div id="error"><img src="images/error/error.png"/>
+      <div id="box_outofservice" ><img src="images/error/box_outofservice.png"/></div>
+      <div id="word_outofservice" ><img src="images/error/word_outofservice.png"/></div>
+      <div id="sign_outofservice" ><img src="images/error/sign_outofservice.png"/></div>
+    </div>
+    <!--寻求帮助界面-->
+    <div id="needhelp">
+      <div id="word_needhelp">
+        <div>
+          <div>请拨打：<span id="phone_number">18668018652</span></div>
+          <div>联系管理员</div>
+        </div>
+      </div>
+      <div id="cancelhelp_needhelp" class="acupos_btn" onclick=" ;showPage(this.id)">取 消</div>
+    </div>
+    <!--入口界面-->
+    <div id="entrance">
+      <div>
+        <div id="shopingway">
+          <div id="myCarousel" style="width: 540px; height: 540px;">
+            <video id="video" autoplay="autoplay"
+              loop="loop" preload="auto"
+              muted="muted" src="images/Acupos2.mp4"
+              width="540" height="540" style="width: 540px; height: 540px;">
+            </video>
+          </div>
+          <div id="way_member" class="acupos_btn">开始购物</div>
+        </div>
+      </div>
+      <div id="help_entrance" onclick="showPage(this.id)">
+        <img src="images/img/prompt.png" style="width: 40px;"/>
+      </div>
+      <div id="language_change" class="acupos_btn" onclick="changeLanguage()">English</div>
+    </div>
+    <!-- 会员卡刷卡界面-->
+    <div id="vip">
+      <div id="vip_text">请 扫 码 登 录</div>
+      <div id="back_vip" class="acupos_btn" onclick=" ">返 回</div>
+      <div id="vip_scan"><img src="images/img/vip_scan.gif"/></div>
+    </div>
+    <!-- 倒计时 -->
+    <div id="countdown_container">60000000000</div>
+    <!-- 商品列表 付款界面-->
+    <div id="container">
+      <div id="nogoodswarning_container" class="alert alert-info">
+        <strong>提示：</strong><b>该商品不存在</b>
+      </div>
+
+      <div id="scan_type" class="alert alert-warning">
+        <div><strong>提示：</strong><b>请将扫描好的商品放在“已扫描商品放置区”</b></div>
+      </div>
+
+      <div id="fulllist">
+        <table id="extratb">
+          <tr>
+            <th width="10%">序号</th>
+            <th width="45%" style="text-align:center;padding-left:10px;">商品名称</th>
+            <th width="15%">单价</th><th width="15%">数量</th><th width="15%">金额</th>
+          </tr>
+        </table>
+        <div>
+          <div id="list_title">商品清单</div>
+          <div id="list" >
+            <table id="listtable">
+              <tr>
+                <th width="10%">序号</th><th width="45%">商品名称</th>
+                <th width="15%">单价</th><th width="15%">数量</th><th width="15%">金额</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="list_num"><b>商品总数：</b><span>0</span><strong>件</strong></div>
+      <div id="list_sum"><b>商品总价:￥</b><span>0</span></div>
+      <div id="total_box">
+        <div id="total_box_text">总价:￥</div><div id="showtotal" class="showtotal"></div>
+        <div id="discount">折扣:</div><div id="showdiscount" class="showtotal"></div>
+        <div id="pocket">应付:￥</div><div id="showpocket"  class="showtotal"></div>
+        <div id="paidamount">已付:￥</div><div id="showpaid" class="showtotal"></div>
+      </div>
+      <div id="method_id">
+        <div id="paynow_method">
+          <!--<div id="paynow_method_vip" class="acupos_btn" onclick=" ">我是会员</div>-->
+          <div id="vip_vipnoandpoint">
+            <div id="vipno">会员账号:</div>
+            <div id="showvipno_cardid"></div>
+            <div id="vipno_point">会员积分:</div>
+            <div id="showvipno_point"></div>
+          </div>
+          <div id="paynow_method_pay" class="acupos_btn">准备付款</div>
+        </div>
+
+        <div id="pay_method">
+          <div id="pay_text">请 选 择 支 付 方 式</div>
+          <div id="pay_line">
+            <div id="alipay">
+              <img src="images/container/zhifubao.png"/>
+              <div>支付宝支付</div>
+            </div>
+            <div id="wechat">
+              <img src="images/container/weixin.png"/>
+              <div>微信支付</div>
+            </div>
+          </div>
+        </div>
+        <div id="rescan_method" class="alert alert-info">
+          <strong>提示：</strong><b>请重新扫描</b>
+        </div>
+        <div id="no_order" class="alert alert-info">
+<strong>提示：</strong><b>定单打印失败</b>
+        </div>
+        <div id="artificialpay_method">
+          <div id="alipay_method_text" style="position: fixed;font-size: 2.2em;width: 220px;left: 20px;top: 205px;border: 1px dashed #080808;">
+            如屏幕上动画：<br />
+            ①<span style="color: #1282D1;">管理员</span>使用<span style="color: #F44336;">授权码</span><br />
+            ②(<span style="color: #F44336;">如动画</span>)扫码授权</div>
+          <div id="artificialpay_method_word"><img src="images/container/alipay_method_word.gif" width="650px"/></div>
+        </div>
+        <div id="wechat_method">
+          <div id="wechat_method_word"><img src="images/container/wechat_method_word.png"/></div>
+        </div>
+        <div id="alipay_method">
+          <div id="alipay_method_word"><img src="images/container/alipay_method_word.png"/></div>
+        </div>
+        <div id="transition_now">
+          <div id="transition_now_word">
+            <img src="images/container/transition_now_word.png"/>
+            <div id="transition_now_word_text">正 在 处 理 请 稍 候</div>
+            <span id="transition_text">...</span>
+          </div>
+        </div>
+      </div>
+      <div id="opition">
+        <div style="margin: 0px 5px;">
+          <video id="video2" autoplay="autoplay"
+          loop="loop" preload="auto"
+          muted="muted" src="images/Acupos2.mp4"
+          width="210" style="width: 210px;">
+          </video>
+        </div>
+        <div id="barcode_container" class="acupos_btn">手动输入条码</div>
+        <div id="canceldeal_container" class="acupos_btn" onclick="screensaverOut()">取消交易</div>
+        <div id="help_container" class="acupos_btn" onclick="showPage(this.id)">帮 助</div>
+        <div id="back_container" class="acupos_btn" onclick="">返 回</div>
+      </div>
+      <div id="help_container_pay" class="acupos_btn" onclick="showPage('help_container')">帮 助</div>
+      <div id="back_screen_pay" class="acupos_btn" onclick="screensaverOut()">取消交易</div>
+      <div id="back_container_pay" class="acupos_btn" onclick="">返 回</div>
+    </div>
+    <!--支付成功界面-->
+    <div id="paysuccess">
+      <div id="prompt_paidsuccess">
+        <div id="word_paysuccess">支 付 成 功</div>
+        <div id="word2_paysuccess">请 取 走 小 票，拿 好 商 品</div>
+        <div id="invoice_paysuccess">
+          <img src="images/paysuccess/invoice_paysuccess.gif"/>
+        </div>
+      </div>
+      <div id="acupos_wish" class="footer">Accuree 祝您生活愉快，欢迎下次光临</div>
+    </div>
+
+    </header>
+    <!--手动输入条码界面-->
+    <div id="barcode">
+      <div id="bg_barcode"></div>
+      <div id="keyboard_bg">
+        <input id="showcode" type="text" value=""/>
+        <div id="code_1" class="acupos_btn" onclick="addInput(this.id)">1</div>
+        <div id="code_2" class="acupos_btn" onclick="addInput(this.id)">2</div>
+        <div id="code_3" class="acupos_btn" onclick="addInput(this.id)">3</div>
+        <div id="code_4" class="acupos_btn" onclick="addInput(this.id)">4</div>
+        <div id="code_5" class="acupos_btn" onclick="addInput(this.id)">5</div>
+        <div id="code_6" class="acupos_btn" onclick="addInput(this.id)">6</div>
+        <div id="code_7" class="acupos_btn" onclick="addInput(this.id)">7</div>
+        <div id="code_8" class="acupos_btn" onclick="addInput(this.id)">8</div>
+        <div id="code_9" class="acupos_btn" onclick="addInput(this.id)">9</div>
+        <div id="code_clean" class="acupos_btn" onclick="addInput(this.id)">清空</div>
+        <div id="code_0" class="acupos_btn" onclick="addInput(this.id)">0</div>
+        <div id="code_back" class="acupos_btn" onclick="addInput(this.id)">←</div>
+        <div id="code_submit" class="acupos_btn" onclick="addInput(this.id)">确认</div>
+      </div>
+      <div id="help_barcode" class="acupos_btn" onclick="showPage(this.id)">帮 助</div>
+      <div id="back_barcode" class="acupos_btn" onclick="">返 回</div>
+    </div>
+    <!-- 取消订单 -->
+    <div id="beginclosetrans" style="background-color:rgba(0,0,0,0.6);">
+      <div id="beginclosetrans_box">
+        <div id="beginclosetrans_text">是否取消此次操作?</div>
+        <div id="beginclosetrans_true"><b>否</b>(<span>10</span>)</div>
+        <div id="beginclosetrans_false" ><b>是</b></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="scripts/jquery-1.12.2.min.js"></script>
+<script>
+  if (typeof module === 'object') {
+    window.jQuery = window.$ = module.exports;
+     window.onload=function initPage(){
+      login();
+    }
+  };
+  </script>
+<script src = "scripts/C-E-language.js"></script>
+<script src = "scripts/sockjs.min.js"></script>
+<script src = "scripts/page_element.js"></script>
+
+<script src="scripts/message.js"></script>
+
+<script type="text/javascript">
+
+</script>
+
+<script src = "scripts/stomp.min.js"></script>
+<script src = "scripts/scanertran.js"></script>
+<script src = "scripts/jQuery_nocash.js"></script>
