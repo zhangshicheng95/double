@@ -23,6 +23,8 @@ function findout(bar_code){
   if (docs[0]) {
   var theTrade=docs[0];
   addList(theTrade);
+      pageManage.toggleCtn("back_container",0.5,"")
+      pageManage.toggleCtn("canceldeal_container",1, "screensaverOut()")
   }else{
   var theTrade={'trade':null,'price':null};
   addList(theTrade);
@@ -62,13 +64,16 @@ function closeli(){
 }
 // 初始化
 function login() {
+  car=[];
+  nums_01=0;
   num_12+=1;
-  num_13="member"+num_12.toString()
+  num_13='AS1002'+num_12.toString()
     pageManage.showPage('page','entrance');
   openm();//开串口
   tradepr="";
   order_is_create=true;//标记是否需要保存清单。
-};
+}
+
 // 获取扫描台条形码
 function scanntrade(){
 flatScanner.on('code',(code) => {
@@ -81,8 +86,8 @@ flatScanner.on('code',(code) => {
 })
 };
 var printer = require('./addons/printer.node');
-printer.open();
-  function print(tradepr,payinfo){
+    printer.open();
+ function print(trade,payinfo){
     let str = "          24h不休店-秋溢科技店\n";
     str += "------------------------------------------\n";
     str +="门店号 1        收银机号 901K17H00065\n";
@@ -107,22 +112,23 @@ printer.open();
       console.log(data);
     });
   }
-
-
-function print_it(payway){
+  function print_it(payway){
   db.shopcar.find({_id:num_13},function (err, docs){
-  if (docs[0]) {
-  var thecar=docs[0];
-  var tradepr=thecar.prepr;
-  payinfo=repayinfo(payway);
-
-  print(tradepr,payinfo)
-  }else{
-      $('#no_order').css({'display':'block'});
-
-      setTimeout("$('#no_order').css({'display':'none'})",3000);
-   console.log(err)
+     if (docs[0]) {
+      var thecar=docs[0];
+      var car=thecar.prepr;
+      for (var i = 0; i < car.length; i++) {
+         tradepr+=car[i][0]+"      "+car[i][2]+"       "+car[i][3]+"       "+car[i][4]+"\n"+car[i][1]+"\n";
+       }
+      payinfo=repayinfo(payway);
+  
+      print(tradepr,payinfo)
+      }else{
+        $('#no_order').css({'display':'block'});
+  
+          setTimeout("$('#no_order').css({'display':'none'})",3000);
+          console.log(err)
+    }
+    })
   }
-  })
-}
-var num_12=0;
+    var num_12=0;
